@@ -8,7 +8,9 @@ and payment processing. Enhanced security is key, including Single Sign-On (SSO)
 Monitoring, load balancing, and centralized logging are also implemented to ensure performance and reliability.
 
 SETUP INSTRUCTIONS
+
 Prerequisites
+
 - Ansible installed on the local machine.
 - SSH access to the target servers.
 - Domain name and SSL certificates for HTTPS.
