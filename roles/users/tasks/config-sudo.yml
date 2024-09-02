@@ -1,0 +1,9 @@
+---
+  - name: Configure sudoer file to allow no passwd
+    ansible.builtin.lineinfile:
+      path: /etc/sudoers
+      state: present
+      regexp: '^%sudo ALL='
+      line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+      validate: /usr/sbin/visudo -cf %s
+    

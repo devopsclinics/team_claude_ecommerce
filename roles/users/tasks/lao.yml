@@ -1,0 +1,26 @@
+---
+  - name: Creating group 'laolu'
+    ansible.builtin.group:
+      name: "{{ user_lao }}"
+      state: present
+
+  - name: Creating user 'laolu' with sudo access
+    ansible.builtin.user:
+      name: "{{ user_lao }}"
+      create_home: yes
+      shell: /bin/bash
+      groups: laolu,sudo
+
+  - name: Create .ssh directory if it doesn't exist
+    ansible.builtin.file:
+      path: '/home/{{ user_lao }}/.ssh'
+      state: directory
+      mode: 0700
+      owner: "{{ user_lao }}"
+      group: "{{ user_lao }}"
+  
+  - name: Copying SSH public key to gcp
+    ansible.posix.authorized_key:
+      user: "{{ user_lao }}"
+      state: present
+      key: "{{ lao_key }}"
