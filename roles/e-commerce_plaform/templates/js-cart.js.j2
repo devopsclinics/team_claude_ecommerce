@@ -1,0 +1,31 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", function() {
+            const productElement = this.closest(".product");
+            const productId = productElement.getAttribute("data-id");
+            const productName = productElement.querySelector("h2").textContent;
+            const productPrice = productElement.querySelector("p").textContent;
+
+            const product = { id: productId, name: productName, price: productPrice };
+            cart.push(product);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${productName} added to cart!`);
+        });
+    });
+
+    const cartItemsContainer = document.getElementById("cart-items");
+    cart.forEach(item => {
+        const itemElement = document.createElement("div");
+        itemElement.className = "cart-item";
+        itemElement.innerHTML = `<h2>${item.name}</h2><p>${item.price}</p>`;
+        cartItemsContainer.appendChild(itemElement);
+    });
+
+    document.getElementById("checkout").addEventListener("click", function() {
+        window.location.href = "checkout.html";
+    });
+});
+

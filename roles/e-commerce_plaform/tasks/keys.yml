@@ -1,0 +1,5 @@
+---
+  - name: Move keys file
+    ansible.builtin.template:
+      src: config-keys.js.j2
+      dest: /var/www/html/login/config/keys.js

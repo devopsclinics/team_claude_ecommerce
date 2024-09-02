@@ -1,0 +1,16 @@
+---
+# tasks file for platform
+  - name: Running all file unit for platform
+    ansible.builtin.include_tasks: "{{ item }}"
+    loop:
+      - directory-def.yml
+      - install.yml
+      - initialize-npm.yml
+      - npm.yml
+      - keys.yml
+      - routes.yml
+      - static-files.yml
+      - images.yml
+      - js-files.yml
+      - serverfile.yml
+      - service.yml

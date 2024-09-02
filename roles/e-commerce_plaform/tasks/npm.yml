@@ -1,0 +1,15 @@
+---
+
+  - name: Install packages with npm
+    community.general.npm:
+      name: "{{ item }}"
+      path: /var/www/html/login
+      state: present
+    loop:
+      - express
+      - express-session
+      - '@okta/oidc-middleware'
+      - bcryptjs
+      - jsonwebtoken
+      - stripe
+      - mongoose

@@ -1,0 +1,5 @@
+---
+  - name: Initialize npm in the project directory
+    ansible.builtin.command:
+      cmd: npm init -y
+      chdir: /var/www/html/login

@@ -1,0 +1,12 @@
+---
+  - name: Create nodejs systemd service
+    ansible.builtin.template:
+      src: project-app.service.j2
+      dest: /etc/systemd/system/project-app.service
+
+  - name: Start the app and enable at boot
+    ansible.builtin.systemd_service:
+      daemon_reload: yes
+      name: project-app
+      state: started
+      enabled: yes

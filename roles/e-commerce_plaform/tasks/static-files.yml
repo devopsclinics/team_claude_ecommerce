@@ -1,0 +1,12 @@
+---
+  - name: Move all the static templates to /var/www/html/login/static
+    ansible.builtin.template:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    loop:
+      - { src: static-cancel.html.j2, dest: /var/www/html/login/static/cancel.html}
+      - { src: static-cart.html.j2, dest: /var/www/html/login/static/cart.html}
+      - { src: static-checkout.html.j2, dest: /var/www/html/login/static/checkout.html}
+      - { src: static-index.html.j2, dest: /var/www/html/login/static/index.html}
+      - { src: static-styles.css.j2, dest: /var/www/html/login/static/styles.css}
+      - { src: static-success.html.j2, dest: /var/www/html/login/static/success.html}
