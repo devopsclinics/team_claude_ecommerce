@@ -1,0 +1,16 @@
+---
+  - name: Run Filebeat setup
+    ansible.builtin.shell: |
+      sudo /usr/share/filebeat/bin/filebeat setup -c /etc/filebeat/filebeat.yml --path.home /usr/share/filebeat --path.data /var/lib/filebeat
+    args:
+      executable: /bin/bash
+    register: filebeat_setup_result
+
+
+  - name: Show Filebeat setup output
+    ansible.builtin.debug:
+      msg: |
+        Command: {{ filebeat_setup_result.cmd }}
+        Exit Status: {{ filebeat_setup_result.rc }}
+        Standard Output: {{ filebeat_setup_result.stdout }}
+        Standard Error: {{ filebeat_setup_result.stderr }}

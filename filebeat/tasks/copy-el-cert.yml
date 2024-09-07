@@ -1,0 +1,6 @@
+---
+  - name: Copy cert to filebeat Servers
+    ansible.builtin.copy:
+      src: /tmp/http_ca.crt
+      dest: /etc/filebeat/
+    when: "'webserver' in group_names"

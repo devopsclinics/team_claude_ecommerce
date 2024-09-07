@@ -1,0 +1,15 @@
+---
+  - name: Run Filebeat test output
+    ansible.builtin.shell: |
+      sudo /usr/share/filebeat/bin/filebeat test output -c /etc/filebeat/filebeat.yml
+    args:
+      executable: /bin/bash
+    register: filebeat_test_result
+
+  - name: Show Filebeat test output result
+    ansible.builtin.debug:
+      msg: |
+        Command: {{ filebeat_test_result.cmd }}
+        Exit Status: {{ filebeat_test_result.rc }}
+        Standard Output: {{ filebeat_test_result.stdout }}
+        Standard Error: {{ filebeat_test_result.stderr }}

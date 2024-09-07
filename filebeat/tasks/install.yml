@@ -1,0 +1,5 @@
+---
+  - name: Installing Filebeat
+    ansible.builtin.package:
+      name: filebeat
+      state: present

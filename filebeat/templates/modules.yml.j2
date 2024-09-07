@@ -1,0 +1,15 @@
+- module: system
+  syslog:
+    enabled: true
+  auth:
+    enabled: true
+
+- module: nginx
+  access:
+    enabled: true
+  error:
+    enabled: true
+
+- module: mongodb
+  log:
+    enabled: true

@@ -12,7 +12,7 @@
           repo: "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main"
           state: present
           filename: /etc/apt/sources.list.d/elastic-8.x.list
-    when: ansible_facts['distribution'] == 'Debian'        
+    when: ansible_facts['distribution'] == 'Debian'   
   
   - name: RHEL Distro
     block:     

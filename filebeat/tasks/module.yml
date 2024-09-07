@@ -1,0 +1,5 @@
+---
+  - name: Copy log monitor module to `/etc/filebeat/module.d/
+    ansible.builtin.template:
+      src: modules.yml.j2
+      dest: /etc/filebeat/modules.d/mylog.yml
