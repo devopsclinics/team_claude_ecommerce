@@ -1,0 +1,7 @@
+---
+# tasks file for logstash_config_role
+- name: Configure Logstash
+  template:
+    src: logstash.conf.j2
+    dest: /etc/logstash/conf.d/logstash.conf
+    mode: '0644'

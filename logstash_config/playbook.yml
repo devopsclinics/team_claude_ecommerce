@@ -2,5 +2,4 @@
 - hosts: 34.35.34.178
   become: yes
   roles:
-    - logstash_role
-    
+    - logstash_config_role
