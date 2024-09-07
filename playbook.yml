@@ -23,6 +23,7 @@
 
 
   roles:
+    - nginx
     - server_monitoring
     - application_monitoring
     - network_monitoring

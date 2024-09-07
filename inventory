@@ -1,8 +1,6 @@
+[haproxy]
+haproxy_server ansible_host=34.170.144.67 ansible_user=morufat
+
 [webservers]
-34.31.184.18 ansible_user=morufat
-34.121.43.62 ansible_user=morufat
-
-
-
-[centralserver]
-34.170.144.67 ansible_user=morufat
+web1 ansible_host=34.31.184.18 ansible_user=morufat
+web2 ansible_host=34.121.43.62 ansible_user=morufat

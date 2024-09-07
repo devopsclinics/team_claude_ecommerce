@@ -1,0 +1,12 @@
+# playbook.yml
+---
+- hosts: haproxy
+  become: yes
+  roles:
+    - haproxy
+
+- hosts: webservers
+  become: yes
+  tasks:
+    - name: Test connection to web servers
+      ping:
