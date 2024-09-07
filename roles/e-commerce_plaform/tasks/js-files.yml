@@ -1,8 +1,0 @@
----
-  - name: Move all js templates to /var/www/html/login/static/js
-    ansible.builtin.template:
-      src: "{{ item.src }}"
-      dest: "{{ item.dest }}"
-    loop:
-      - { src: js-cart.js.j2, dest: /var/www/html/login/static/js/cart.js}
-      - { src: js-checkout.js.j2, dest: /var/www/html/login/static/js/checkout.js}

@@ -1,5 +1,0 @@
----
-  - name: Move checkout.js.j2 to /var/www/html/login/routes
-    ansible.builtin.template:
-      src: route-checkout.js.j2
-      dest: /var/www/html/login/routes/checkout.js

@@ -1,0 +1,9 @@
+---
+
+  - name: Get Kibana verification code
+    shell: "/usr/share/kibana/bin/kibana-verification-code"
+    register: verification_code
+
+  - name: Display Kibana verification code
+    debug:
+      msg: "The Kibana verification code is: {{ verification_code.stdout }}"

@@ -1,5 +1,0 @@
----
-  - name: Move all the static templates to /var/www/html/login/static
-    ansible.builtin.template:
-      src: server.js.j2
-      dest: /var/www/html/login/project-app.js

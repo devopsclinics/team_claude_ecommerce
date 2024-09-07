@@ -1,0 +1,5 @@
+---
+  - name: Copy Logstash processing file to `\etc\logstash\conf.d\logstach-filebeat.conf`
+    ansible.builtin.template:
+      src: logstash.conf.j2
+      dest: \etc\logstash\conf.d\logstach-filebeat.conf

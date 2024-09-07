@@ -1,0 +1,18 @@
+---
+  - name: Update package repository cache
+    ansible.builtin.package:
+      update_cache: yes
+
+  - name: Import all elk-stack task files
+    ansible.builtin.include_tasks: "{{ item_tasks }}"
+    loop:
+      # - elk-repo.yml
+      # - install.yml
+      # #- logfile-config.yml
+      # - service.yml
+      # - enrollment-token.yml
+      # - kibana-verification-code.yml
+      # - kibana-config.yml
+      - copy-cert.yml
+    loop_control:
+      loop_var: item_tasks

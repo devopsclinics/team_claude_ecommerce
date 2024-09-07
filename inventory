@@ -1,8 +1,0 @@
-[webservers]
-34.31.184.18 ansible_user=morufat
-34.121.43.62 ansible_user=morufat
-
-
-
-[centralserver]
-34.170.144.67 ansible_user=morufat

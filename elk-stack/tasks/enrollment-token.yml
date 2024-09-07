@@ -1,0 +1,8 @@
+---
+    - name: Generate enrollment token for Kibana
+      shell: "/usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana"
+      register: enrollment_token
+
+    - name: Display Kibana enrollment token
+      debug:
+        msg: "The Kibana enrollment token is: {{ enrollment_token.stdout }}"

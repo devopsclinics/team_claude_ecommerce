@@ -1,0 +1,33 @@
+---
+  - name: Configuring ELK stack repository - Debian
+    block:
+      - name: Creating ELK stack repo - Debian
+        ansible.builtin.apt_key:
+          url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+          keyring: /usr/share/keyrings/elastic-keyring.gpg
+          state: present
+
+      - name: Creating repo and adding to the source list - Debian
+        ansible.builtin.apt_repository:
+          repo: "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main"
+          state: present
+          filename: /etc/apt/sources.list.d/elastic-8.x.list
+    when: ansible_facts['distribution'] == 'Debian'        
+  
+  - name: RHEL Distro
+    block:     
+      - name: Downloading and Installing the ELK stack public signing key - RHEL
+        ansible.builtin.rpm_key:
+          state: present
+          key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+      - name: Creating Repository for ELK stack - RHEL
+        ansible.builtin.yum_repository:
+          name: elastic-8.x
+          description: ELK Stack repository for 8.x packages
+          baseurl: https://artifacts.elastic.co/packages/8.x/yum
+          gpgcheck: yes
+          enabled: yes
+          gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+          retries: 1
+    when: ansible_facts['distribution'] != 'Debian'

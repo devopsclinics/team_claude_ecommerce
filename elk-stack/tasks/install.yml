@@ -1,0 +1,48 @@
+---
+  - name: RHEL
+    block:
+      - name: Install Elasticsearch and capture the output
+        ansible.builtin.shell: |
+            sudo yum install -y elasticsearch
+        register: install_output
+
+      - name: Extract superuser password from the output
+        ansible.builtin.set_fact:
+          superuser_password: "{{ install_output.stdout | regex_search('The generated password for the elastic built-in superuser is : ([^\\s]+)', '\\1') }}"
+
+      - name: Display the extracted superuser password
+        ansible.builtin.debug:
+          msg: "The superuser password is: {{ superuser_password }}"
+
+      - name: Install kibana and logstash
+        ansible.builtin.package:
+          name:
+            - kibana
+            - logstash
+          state: present
+    when: ansible_facts['distribution'] != 'Debian' 
+
+  - name: Debian
+    block:
+      - name: Install Elasticsearch and capture the output
+        ansible.builtin.shell: |
+            sudo apt install -y elasticsearch
+        register: install_output
+
+      - name: Extract superuser password from the output
+        ansible.builtin.set_fact:
+          superuser_password: "{{ install_output.stdout | regex_search('The generated password for the elastic built-in superuser is : ([^\\s]+)', '\\1') }}"
+
+      - name: Display the extracted superuser password
+        ansible.builtin.debug:
+          msg: "The superuser password is: {{ superuser_password }}"
+
+      - name: Install kibana
+        ansible.builtin.package:
+          name:
+            - kibana
+            #- logstash
+          state: present
+    when: ansible_facts['distribution'] == 'Debian' 
+
+      

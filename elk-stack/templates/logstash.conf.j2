@@ -1,0 +1,27 @@
+# Input: Receive logs from Filebeat
+input {
+  beats {
+    port => 5044  # This is the port Filebeat will send logs to
+  }
+}
+
+# Filter: Parse and transform logs (optional)
+filter {
+  if [fileset][module] == "system" {
+    grok {
+      match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:hostname} %{DATA:process} %{GREEDYDATA:log_message}" }
+    }
+    date {
+      match => [ "timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss" ]
+    }
+  }
+}
+
+# Output: Send the processed logs to Elasticsearch
+output {
+  elasticsearch {
+    hosts => ["http://localhost:9200"]  # Elasticsearch is running on the same server
+    index => "filebeat-%{[@metadata][beat]}-%{+YYYY.MM.dd}"
+  }
+  stdout { codec => rubydebug }  # Optional: For debugging, outputs logs to console
+}
