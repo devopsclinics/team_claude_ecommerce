@@ -1,0 +1,5 @@
+---
+- name: Download Elasticsearch DEB package
+  get_url:
+    url: "{{ elasticsearch_repo_url }}"
+    dest: /tmp/elasticsearch-{{ elasticsearch_version }}-amd64.deb

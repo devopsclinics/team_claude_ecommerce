@@ -1,0 +1,4 @@
+- name: Check if MongoDB APT keyring exists
+  stat:
+    path: /usr/share/keyrings/mongo-key.gpg
+  register: mongo_keyring_exists

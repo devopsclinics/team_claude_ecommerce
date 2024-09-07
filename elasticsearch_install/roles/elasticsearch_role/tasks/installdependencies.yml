@@ -1,0 +1,8 @@
+---
+- name: Install necessary packages
+  apt:
+    name:
+      - wget
+      - apt-transport-https
+      - default-jdk
+    state: present

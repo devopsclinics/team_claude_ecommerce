@@ -1,0 +1,15 @@
+---
+# tasks file for createdbanduser_role
+
+
+- name: Create MongoDB database
+  command: >
+    mongo --eval "db.getSiblingDB('my_database').createCollection('dummy')"
+  register: mongo_result
+  changed_when: "'dummy' in mongo_result.stdout"
+
+- name: Display MongoDB result
+  debug:
+    msg: "{{ mongo_result.stdout }}"
+
+

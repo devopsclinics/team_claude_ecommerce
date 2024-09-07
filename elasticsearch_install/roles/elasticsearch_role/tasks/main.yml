@@ -1,0 +1,10 @@
+---
+# tasks file for elasticsearch_role
+- include_tasks: installdependencies.yml
+- include_tasks: downloadpackage.yml
+- include_tasks: installelasticsearch.yml
+- include_tasks: enableelasticsearch.yml
+
+- name: display elasticsearch URL
+  debug:
+    msg: "Elasticsearch is available at {{ elasticsearch_server_name }} "

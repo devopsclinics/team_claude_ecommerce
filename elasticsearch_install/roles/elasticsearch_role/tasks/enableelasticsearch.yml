@@ -1,0 +1,6 @@
+---
+- name: Ensure Elasticsearch service is started and enabled
+  systemd:
+    name: elasticsearch
+    state: started
+    enabled: yes

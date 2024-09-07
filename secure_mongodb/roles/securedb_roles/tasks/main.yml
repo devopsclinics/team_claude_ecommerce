@@ -1,0 +1,29 @@
+---
+# tasks file for securedb_roles
+- name: Ensure MongoDB is installed and running
+  service:
+    name: mongod
+    state: started
+    enabled: yes
+
+- name: Creating MongoDB user admin
+  community.mongodb.mongodb_user:
+    database: admin
+    name: saheed
+    password: saheed
+    roles: root
+    state: present
+
+- name: Drop MongoDB database 
+  ansible.builtin.command: >
+    mongosh admin --eval 'db = db.getSiblingDB("test"); 
+    db.dropDatabase();'
+
+- name: Set MongoDB authentication in the configuration file
+  lineinfile:
+    path: /etc/mongod.conf
+    regexp: '^#?security:'
+    line: |
+      security:
+        authorization: "enabled"
+  notify: Restart MongoDB

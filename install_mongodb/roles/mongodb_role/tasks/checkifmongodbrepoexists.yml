@@ -1,0 +1,4 @@
+- name: Check if MongoDB repository exists
+  stat:
+    path: /etc/apt/sources.list.d/mongodb-org-{{ mongodb_version }}.list
+  register: mongo_repository_exists

@@ -1,0 +1,5 @@
+- name: Add MongoDB APT keyring
+  shell: "curl -fsSL https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc | sudo gpg --dearmour -o /usr/share/keyrings/mongo-key.gpg"
+  args:
+    executable: /bin/bash
+  when: not mongo_keyring_exists.stat.exists

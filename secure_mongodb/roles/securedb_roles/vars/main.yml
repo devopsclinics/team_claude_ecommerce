@@ -1,0 +1,6 @@
+---
+# vars file for securedb_roles
+mongodb_admin_password: "123456"
+mongodb_test_database_name: "testdb"
+mongodb_host: "localhost"
+mongodb_port: 27017

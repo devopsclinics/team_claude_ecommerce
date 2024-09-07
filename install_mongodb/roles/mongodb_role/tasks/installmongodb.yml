@@ -1,0 +1,4 @@
+- name: Install MongoDB packages
+  apt:
+    name: mongodb-org
+    state: latest

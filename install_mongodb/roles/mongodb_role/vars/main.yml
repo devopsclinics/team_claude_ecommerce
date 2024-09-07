@@ -1,0 +1,12 @@
+---
+# vars file for mongodb_role
+#- vars_mongo.yml
+mongodb_server_name: "34.72.212.224:27017"
+mongodb_port: "27017"
+mongodb_version: "7.0"
+database_name: "admin"
+mongodb_root_user: "rootuser"
+mongodb_root_password: "strongpassword"
+mongodb_admin_user: "superadmin"
+mongodb_admin_password: "superadmin123"
+

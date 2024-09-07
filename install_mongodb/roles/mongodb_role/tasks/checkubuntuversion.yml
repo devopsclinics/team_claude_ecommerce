@@ -1,0 +1,3 @@
+- name: Check Ubuntu version
+  command: lsb_release -rs
+  register: ubuntu_version

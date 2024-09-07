@@ -1,0 +1,7 @@
+---
+# handlers file for mongodb_role
+
+- name: Restart MongoDB
+  systemd:
+    name: mongod
+    state: restarted

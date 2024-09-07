@@ -1,0 +1,15 @@
+---
+# # tasks file for mongodb_role
+
+- include_tasks: installdepend.yml
+- include_tasks: checkmongodbaptkeyring.yml
+- include_tasks: addmongodbaptkeyring.yml
+- include_tasks: checkifmongodbrepoexists.yml
+- include_tasks: addmongodbrepo.yml
+- include_tasks: updateaptcache.yml
+- include_tasks: installmongodb.yml
+- include_tasks: enableandstartmongodb.yml
+
+- name: display mongoDB URL
+  debug:
+    msg: "MongoDB is available at {{ mongodb_server_name }} "

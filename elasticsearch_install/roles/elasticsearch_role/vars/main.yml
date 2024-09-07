@@ -1,0 +1,7 @@
+---
+# vars file for elasticsearch_role
+
+elasticsearch_version: "8.15.1"
+elasticsearch_repo_url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}-amd64.deb"
+elasticsearch_server_name: "34.72.212.224"
+

@@ -1,0 +1,8 @@
+- name: Add MongoDB repository
+  shell: sudo sh -c 'echo deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongo-key.gpg] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/{{ mongodb_version }} multiverse > /etc/apt/sources.list.d/mongodb-org-{{ mongodb_version }}.list'
+  args:
+    executable: /bin/bash
+  when: not mongo_repository_exists.stat.exists
+
+
+

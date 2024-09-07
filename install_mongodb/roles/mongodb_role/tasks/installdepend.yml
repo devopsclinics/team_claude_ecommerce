@@ -1,0 +1,10 @@
+- name: Installing dependancies
+  package:
+    name: "{{item}}"
+    state: present
+    update_cache: yes
+  loop:
+    - curl
+    - gnupg
+    - python3-pip
+  become: yes

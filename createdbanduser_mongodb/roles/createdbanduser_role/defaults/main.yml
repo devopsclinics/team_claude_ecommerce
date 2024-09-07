@@ -1,0 +1,23 @@
+---
+# defaults file for createdbanduser_role
+
+mongodb_version: "7.0"
+mongodb_repo_url: "https://repo.mongodb.org/apt/{{ ansible_os_family | lower }}/{{ ansible_distribution | lower }}"
+mongodb_repo_key_url: "https://www.mongodb.org/static/pgp/server-{{ mongodb_version }}.asc"
+mongodb_package_name: "mongodb-org"
+mongodb_conf_file: "/etc/mongod.conf"
+
+mongodb_db_name: "mydatabase"
+mongodb_user_name: "myuser"
+mongodb_user_password: "mypassword"
+mongodb_auth_db: "admin"
+dummy_name: dummydummy
+
+mongodb_host: '34.72.212.224'
+mongodb_port: 27017
+mongodb_user: 'admin'
+mongodb_password: 'admin_password'
+mongodb_auth_db: 'admin'
+mongodb_database: 'my_database'
+mongodb_user_name: 'my_user'
+mongodb_user_password: 'my_user_password'

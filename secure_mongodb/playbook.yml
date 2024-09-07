@@ -1,0 +1,5 @@
+---
+- hosts: 34.72.212.224
+  become: yes
+  roles:
+    - securedb_roles

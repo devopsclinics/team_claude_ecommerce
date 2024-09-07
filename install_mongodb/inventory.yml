@@ -1,0 +1,6 @@
+---
+all:
+  hosts:
+    34.72.212.224:
+      ansible_user: saheed
+    
